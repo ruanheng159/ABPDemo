@@ -17,7 +17,7 @@ public class BookStoreDbContextFactory : IDesignTimeDbContextFactory<BookStoreDb
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<BookStoreDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("Default"));
+            .UseMySql(configuration.GetConnectionString("Default"),new MySqlServerVersion(new Version()));
 
         return new BookStoreDbContext(builder.Options);
     }
